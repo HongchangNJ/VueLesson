@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1"/>
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id = "App">
+        <input type="text" v-on:keyup = "changeName">
+        output : {{ name }}
+
+        <input type="text">
+        output : {{ name }}
+    </div>
+
+    <script>
+        new Vue({
+            el : "#App",
+            data : {
+                name : "hello world"
+            },
+
+            methods : {
+                changeName : function (event) {
+                    this.name = event.target.value;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

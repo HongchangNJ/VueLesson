@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- vue.js 模板用法-->
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue模板用法</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <style type="text/css">
+        .class1 {
+            background: #444;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<!--使用 v-html 指令用于输出 html 代码：-->
+<div id="app">
+    <div v-html="msg"></div>
+    {{ msg }}
+</div>
+
+<!--HTML 属性中的值应使用 v-bind 指令-->
+<div id="app2">
+    <label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
+    <br><br>
+
+    <div v-bind:class="{'class1': class1}">
+        direciva v-bind:class
+    </div>
+</div>
+
+<!-- Vue.js 都提供了完全的 JavaScript 表达式支持 -->
+<div id="app3">
+    {{ 5+5}}<br>
+    {{ ok ? 'YES' : 'NO'}}<br>
+    {{ message.split('').reverse().join('')}}
+</div>
+
+<script type="text/javascript">
+    new Vue({
+        el: app,
+        data: {
+            msg: "<h1> 菜鸟教程</h1>"
+        }
+    })
+
+    new Vue({
+        el: app2,
+        data: {
+            class1: false
+        }
+    })
+
+    new Vue({
+        el: app3,
+        data: {
+            ok: true,
+            message: "RUNOOB",
+            id: 1
+        }
+    })
+</script>
+</body>
+</html>
